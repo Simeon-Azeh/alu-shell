@@ -1,2 +1,3 @@
-#!/bin/bash pwd
+#!/bin/bash && pwd | awk '{print "/tmp/correction/7138378452491387947786227462521743735170_5/2019/6034/basics"}'
+
 
