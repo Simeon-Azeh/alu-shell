@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e "Applications\tDocuments\tDropbox\tMovies\tPictures\nDesktop\tDownloads\tLibrary\tMusic\tPublic"
+ls | tr '\n' ' '
