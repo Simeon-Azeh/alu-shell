@@ -1,2 +1,2 @@
 #!/bin/bash
-cd - > /dev/null && echo `pwd`
+cd ../basics
