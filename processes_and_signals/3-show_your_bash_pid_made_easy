@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+#Get the script's PID
+script_pid=$$
+
+# Iterate through the processes in /proc
+for pid_dir in /proc/[0-9]*/; do
+    pid=$(basename "$pid_dir")
+    
+    # Skip the script's own entry
+    if [ "$pid" != "$script_pid" ]; then
+        # Read the command line of the process
+        cmd_line=$(tr -d '\0' < "$pid_dir/cmdline")
+        
+        # Check if the command line contains "bash"
+        if [[ "$cmd_line" == *bash* ]]; then
+            echo "$pid $cmd_line"
+        fi
+    fi
+done
