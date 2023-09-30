@@ -12,7 +12,7 @@ for pid_dir in /proc/[0-9]*/; do
         cmd_line=$(tr -d '\0' < "$pid_dir/cmdline")
         
         # Check if the command line contains "bash"
-        if [[ "$cmd_line" == *bash* ]]; then
+        if [[ "$cmd_line" == *"/bin/bash"* ]]; then
             echo "$pid $cmd_line"
         fi
     fi
