@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Header for the process list
+printf "%-10s %-5s %-5s %-8s %-8s %-8s %-5s %-10s %-10s %s\n" \
+"USER" "PID" "%CPU" "%MEM" "VSZ" "RSS" "TTY" "STAT" "START" "COMMAND"
+# List all processes and format the output
+ps axo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,comm --forest | \
+tail -n +2 | awk '{ printf "%-10s %-5d %-5s %-8s %-8s %-8s %-5s %-10s %-10s %s\n", $1, $2, $3, $4, $5, $6, $7, $8, $9, $10 }' | \
+head -n 50
